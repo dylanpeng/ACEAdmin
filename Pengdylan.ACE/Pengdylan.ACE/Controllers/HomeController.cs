@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Pengdylan.ACE.BLL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -24,6 +25,12 @@ namespace Pengdylan.ACE.Controllers
         {
             ViewBag.Message = "Your contact page.";
 
+            return View();
+        }
+
+        public ActionResult Test()
+        {
+            testBLL.Add();
             return View();
         }
     }

@@ -26,6 +26,31 @@ namespace Pengdylan.ACE
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+
+            #region assets(ACE)
+            bundles.Add(new StyleBundle("~/assets/css").Include(
+                      "~/assets/css/bootstrap.min.css",
+                      "~/assets/css/font-awesome.min.css",
+                      "~/assets/css/ace.min.css",
+                      "~/assets/css/ace-rtl.min.css",
+                      "~/assets/css/ace-skins.min.css"
+                      ));
+
+            bundles.Add(new ScriptBundle("~/assets/JS").Include(
+                      "~/assets/js/bootstrap.min.js",
+                      "~/assets/js/typeahead-bs2.min.js",
+                      "~/assets/js/jquery-ui-1.10.3.custom.min.js",
+                      "~/assets/js/jquery.ui.touch-punch.min.js",
+                      "~/assets/js/jquery.slimscroll.min.js",
+                      "~/assets/js/jquery.easy-pie-chart.min.js",
+                      "~/assets/js/jquery.sparkline.min.js",
+                      "~/assets/js/flot/jquery.flot.min.js",
+                      "~/assets/js/flot/jquery.flot.pie.min.js",
+                      "~/assets/js/flot/jquery.flot.resize.min.js",
+                      "~/assets/js/ace-elements.min.js",
+                      "~/assets/js/ace.min.js"));
+
+            #endregion
         }
     }
 }
