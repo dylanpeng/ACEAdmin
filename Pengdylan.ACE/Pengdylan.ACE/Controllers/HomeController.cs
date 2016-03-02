@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Pengdylan.ACE.BLL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -29,6 +30,7 @@ namespace Pengdylan.ACE.Controllers
 
         public ActionResult Test()
         {
+            testBLL.Add();
             return View();
         }
     }
