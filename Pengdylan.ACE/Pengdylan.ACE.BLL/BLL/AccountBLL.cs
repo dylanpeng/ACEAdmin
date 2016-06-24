@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Pengdylan.ACE.BLL
 {
-    public static class AccountBLL
+    public class AccountBLL
     {
         public static bool Add()
         {
