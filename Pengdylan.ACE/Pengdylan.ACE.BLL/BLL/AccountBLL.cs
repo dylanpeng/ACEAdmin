@@ -1,5 +1,6 @@
 ﻿using Microsoft.Practices.Unity;
 using Microsoft.Practices.Unity.Configuration;
+using Pengdylan.ACE.Common;
 using Pengdylan.ACE.DAL.DALImplement;
 using System;
 using System.Collections.Generic;
@@ -14,10 +15,8 @@ namespace Pengdylan.ACE.BLL
     {
         public static bool Add()
         {
-            IUnityContainer container = new UnityContainer();//获取指定名称的配置节  
-            UnityConfigurationSection section = (UnityConfigurationSection)ConfigurationManager.GetSection("unity");
-            container.LoadConfiguration(section, "MyContainer");
-            var accountDAL = container.Resolve<IAccountDAL>();
+            var iocRepository = UnityContainerRepository.getInstance();
+            var accountDAL = iocRepository.container.Resolve<IAccountDAL>();
             return accountDAL.Add();
         }
     }

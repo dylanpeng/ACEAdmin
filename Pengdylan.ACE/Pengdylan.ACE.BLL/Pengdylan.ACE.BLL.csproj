@@ -80,6 +80,10 @@
     <Compile Include="testBLL.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Pengdylan.ACE.Common\Pengdylan.ACE.Common.csproj">
+      <Project>{dad99998-9bcd-42e2-a95b-41e91d8c1580}</Project>
+      <Name>Pengdylan.ACE.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Pengdylan.ACE.DAL\Pengdylan.ACE.DAL.csproj">
       <Project>{4aaa2f04-7b30-41f9-a6bb-e62d91674c94}</Project>
       <Name>Pengdylan.ACE.DAL</Name>
