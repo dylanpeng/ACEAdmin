@@ -16,15 +16,21 @@ namespace Pengdylan.ACE.Data
         }
 
 
+        #region 实体对象
 
         public DbSet<Account> Account { get; set; }
 
+        
+        #endregion
+
+
+        #region mapping配置
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             //modelBuilder.Entity<Account>().ToTable("Account");
             modelBuilder.Configurations.Add(new AccountEntityTypeConfiguration());
         }
-
+        #endregion
 
     }
 }
