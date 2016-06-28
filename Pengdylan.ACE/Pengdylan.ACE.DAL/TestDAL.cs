@@ -9,12 +9,14 @@ namespace Pengdylan.ACE.DAL
 {
     public static class TestDAL
     {
-        public static bool Add()
+        public static bool Add(Data.Account account)
         {
-            var context = new DataContext();
-            context.Account.Add(new Data.Account() { Name = "admin", Password = "123456" });
-            context.SaveChanges();
             bool result = false;
+            if (account == null)
+                return result;
+            var context = new DataContext();
+            context.Account.Add(account);
+            context.SaveChanges();
             return result;
         }
     }

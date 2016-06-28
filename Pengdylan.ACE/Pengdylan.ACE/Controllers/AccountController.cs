@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Pengdylan.ACE.Models;
+using Pengdylan.ACE.BLL;
 
 namespace Pengdylan.ACE.Controllers
 {
@@ -73,6 +74,7 @@ namespace Pengdylan.ACE.Controllers
                 return View(model);
             }
 
+            /*
             // 这不会计入到为执行帐户锁定而统计的登录失败次数中
             // 若要在多次输入错误密码的情况下触发帐户锁定，请更改为 shouldLockout: true
             var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
@@ -89,6 +91,10 @@ namespace Pengdylan.ACE.Controllers
                     ModelState.AddModelError("", "无效的登录尝试。");
                     return View(model);
             }
+            */
+            var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
+            //AccountBLL.Add(model.Email, model.Password);
+            return View(model);
         }
 
         //
@@ -153,11 +159,13 @@ namespace Pengdylan.ACE.Controllers
             {
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
                 var result = await UserManager.CreateAsync(user, model.Password);
+                var accountResult = AccountBLL.Add(model.Email, model.Password);
+                /*
                 if (result.Succeeded)
                 {
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     
-                    // 有关如何启用帐户确认和密码重置的详细信息，请访问 http://go.microsoft.com/fwlink/?LinkID=320771
+                    //// 有关如何启用帐户确认和密码重置的详细信息，请访问 http://go.microsoft.com/fwlink/?LinkID=320771
                     // 发送包含此链接的电子邮件
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
@@ -166,10 +174,11 @@ namespace Pengdylan.ACE.Controllers
                     return RedirectToAction("Index", "Home");
                 }
                 AddErrors(result);
+                */
             }
 
             // 如果我们进行到这一步时某个地方出错，则重新显示表单
-            return View(model);
+            return RedirectToAction("Index", "Home");
         }
 
         //

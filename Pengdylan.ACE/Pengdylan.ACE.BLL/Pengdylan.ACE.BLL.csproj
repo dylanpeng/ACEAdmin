@@ -88,6 +88,10 @@
       <Project>{4aaa2f04-7b30-41f9-a6bb-e62d91674c94}</Project>
       <Name>Pengdylan.ACE.DAL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Pengdylan.ACE.Data\Pengdylan.ACE.Data.csproj">
+      <Project>{b422bec1-8f39-48f9-a06e-cd9501801bfb}</Project>
+      <Name>Pengdylan.ACE.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

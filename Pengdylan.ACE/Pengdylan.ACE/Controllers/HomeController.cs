@@ -30,7 +30,7 @@ namespace Pengdylan.ACE.Controllers
 
         public ActionResult Test()
         {
-            AccountBLL.Add();
+            //AccountBLL.Add();
             //testBLL.Add();
             return View();
         }

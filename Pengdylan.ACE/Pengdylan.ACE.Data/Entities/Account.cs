@@ -14,5 +14,8 @@ namespace Pengdylan.ACE.Data
         public int ID { get; set; }
         public string Name { get; set; }
         public string Password { get; set; }
+        public Nullable<DateTime> CreatedTime { get; set; }
+        public Nullable<DateTime> UpdatedTime { get; set; }
+        public Nullable<bool>  IsDelete { get; set; }
     }
 }

@@ -8,6 +8,6 @@ namespace Pengdylan.ACE.DAL.DALImplement
 {
     public interface IAccountDAL
     {
-        bool Add();
+        bool Add(Data.Account account);
     }
 }

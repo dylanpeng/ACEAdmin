@@ -12,7 +12,7 @@ namespace Pengdylan.ACE.BLL
         public static bool Add()
         {
             bool result = false;
-            TestDAL.Add();
+            //TestDAL.Add();
             return result;
         }
     }

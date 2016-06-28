@@ -8,16 +8,24 @@ using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Pengdylan.ACE.Data;
 
 namespace Pengdylan.ACE.BLL
 {
     public class AccountBLL
     {
-        public static bool Add()
+        public static bool Add(string name, string passWord)
         {
+            var account = new Data.Account()
+            {
+                Name = name,
+                Password = passWord,
+                IsDelete = false,
+                CreatedTime = DateTime.Now
+            };
             var iocRepository = UnityContainerRepository.getInstance();
             var accountDAL = iocRepository.container.Resolve<IAccountDAL>();
-            return accountDAL.Add();
+            return accountDAL.Add(account);
         }
     }
 }
