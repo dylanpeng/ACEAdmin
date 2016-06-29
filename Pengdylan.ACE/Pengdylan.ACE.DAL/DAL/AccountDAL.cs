@@ -10,15 +10,28 @@ namespace Pengdylan.ACE.DAL
 {
     public class AccountDAL : IAccountDAL
     {
-        public bool Add(Data.Account account)
+        public int Add(Data.Account account)
         {
-            bool result = false;
             if (account == null)
-                return result;
+                return -1;
             var context = new DataContext();
             context.Account.Add(account);
             context.SaveChanges();
-            return result;
+            return account.ID;
+        }
+
+        public int ValidateAccount(string name, string passWord)
+        {
+            var context = new DataContext();
+            var account = context.Account.Where(q => q.Name == name && q.Password == passWord && q.IsDelete == false).FirstOrDefault();
+            return account != null ? account.ID : -1;
+        }
+
+        public bool IsAccountRegistered(string name)
+        {
+            var context = new DataContext();
+            int count = context.Account.Count(q => q.Name == name && q.IsDelete == false);
+            return count > 0 ? true : false;
         }
     }
 }

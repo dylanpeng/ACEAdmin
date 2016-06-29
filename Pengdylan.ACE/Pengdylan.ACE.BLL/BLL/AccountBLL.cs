@@ -14,18 +14,33 @@ namespace Pengdylan.ACE.BLL
 {
     public class AccountBLL
     {
-        public static bool Add(string name, string passWord)
+        public static int Add(string name, string passWord)
         {
-            var account = new Data.Account()
+            if (!IsAccountRegistered(name))
             {
-                Name = name,
-                Password = passWord,
-                IsDelete = false,
-                CreatedTime = DateTime.Now
-            };
-            var iocRepository = UnityContainerRepository.getInstance();
-            var accountDAL = iocRepository.container.Resolve<IAccountDAL>();
-            return accountDAL.Add(account);
+                var account = new Data.Account()
+                {
+                    Name = name,
+                    Password = passWord,
+                    IsDelete = false,
+                    CreatedTime = DateTime.Now
+                };
+                var iocRepository = UnityContainerRepository.getInstance();
+                var accountDAL = iocRepository.container.Resolve<IAccountDAL>();
+                return accountDAL.Add(account);
+            }
+            else
+                return -1;
         }
+
+        public static int ValidateAccount(string name, string passWord)
+        {
+            return UnityContainerRepository.getInstance().container.Resolve<IAccountDAL>().ValidateAccount(name, passWord);
+        }
+        public static bool IsAccountRegistered(string name)
+        {
+            return UnityContainerRepository.getInstance().container.Resolve<IAccountDAL>().IsAccountRegistered(name);
+        }
+
     }
 }

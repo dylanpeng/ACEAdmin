@@ -8,6 +8,10 @@ namespace Pengdylan.ACE.DAL.DALImplement
 {
     public interface IAccountDAL
     {
-        bool Add(Data.Account account);
+        int Add(Data.Account account);
+
+        int ValidateAccount(string name, string passWord);
+
+        bool IsAccountRegistered(string name);
     }
 }
