@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
-using Pengdylan.ACE.Data.Mapping;
+using Pengdylan.ACE.Data;
+using Pengdylan.ACE.DAL.Mapping;
 
-namespace Pengdylan.ACE.Data
+namespace Pengdylan.ACE.DAL
 {
     public class DataContext : DbContext
     {

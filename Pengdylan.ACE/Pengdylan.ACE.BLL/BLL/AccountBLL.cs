@@ -1,7 +1,7 @@
 ﻿using Microsoft.Practices.Unity;
 using Microsoft.Practices.Unity.Configuration;
 using Pengdylan.ACE.Common;
-using Pengdylan.ACE.DAL.DALImplement;
+using Pengdylan.ACE.Common.DALImplement;
 using System;
 using System.Collections.Generic;
 using System.Configuration;

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Pengdylan.ACE.DAL.DALImplement
+namespace Pengdylan.ACE.Common.DALImplement
 {
     public interface IAccountDAL
     {

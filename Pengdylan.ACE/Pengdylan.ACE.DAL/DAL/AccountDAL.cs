@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Pengdylan.ACE.DAL.DALImplement;
+using Pengdylan.ACE.Common.DALImplement;
 using Pengdylan.ACE.Data;
 
 namespace Pengdylan.ACE.DAL
