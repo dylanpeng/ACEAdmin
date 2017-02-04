@@ -28,10 +28,10 @@ namespace Pengdylan.ACE.Controllers
             return View();
         }
 
-        [HttpAuthorize]
+        //[HttpAuthorize]
         public ActionResult Test()
         {
-            //AccountBLL.Add();d
+            AccountBLL.Add("Test", "123456");
             //testBLL.Add();
             return View();
         }
