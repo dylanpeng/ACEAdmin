@@ -25,8 +25,9 @@ namespace Pengdylan.ACE.BLL
                     IsDelete = false,
                     CreatedTime = DateTime.Now
                 };
-                var iocRepository = UnityContainerRepository.getInstance();
-                var accountDAL = iocRepository.container.Resolve<IAccountDAL>();
+                //var iocRepository = UnityContainerRepository.getInstance();
+                //var accountDAL = iocRepository.container.Resolve<IAccountDAL>();
+                var accountDAL = UnityContainerRepository.GetInstanceDAL<IAccountDAL>();
                 return accountDAL.Add(account);
             }
             else
@@ -39,6 +40,7 @@ namespace Pengdylan.ACE.BLL
         }
         public static bool IsAccountRegistered(string name)
         {
+            return false;
             return UnityContainerRepository.getInstance().container.Resolve<IAccountDAL>().IsAccountRegistered(name);
         }
 

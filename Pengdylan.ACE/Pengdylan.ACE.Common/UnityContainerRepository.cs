@@ -29,5 +29,10 @@ namespace Pengdylan.ACE.Common
             }
             return instance;
         }
+
+        public static T GetInstanceDAL<T>()
+        {
+            return getInstance().container.Resolve<T>();
+        }
     }
 }
