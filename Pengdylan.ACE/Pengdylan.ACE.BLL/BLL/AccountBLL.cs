@@ -12,6 +12,24 @@ using Pengdylan.ACE.Data;
 
 namespace Pengdylan.ACE.BLL
 {
+    ////依赖注入实例
+    //public class testBLL1
+    //{
+    //    [Dependency]
+    //    public IAccountDAL dal { get; set; }
+    //    public void add()
+    //    {
+    //        var account = new Data.Account()
+    //        {
+    //            Name = "a",
+    //            Password = "abc",
+    //            IsDelete = false,
+    //            CreatedTime = DateTime.Now
+    //        };
+    //        dal.Add(account);
+    //    }
+    //}
+
     public class AccountBLL
     {
         public static int Add(string name, string passWord)
@@ -28,6 +46,8 @@ namespace Pengdylan.ACE.BLL
                 //var iocRepository = UnityContainerRepository.getInstance();
                 //var accountDAL = iocRepository.container.Resolve<IAccountDAL>();
                 var accountDAL = UnityContainerRepository.GetInstanceDAL<IAccountDAL>();
+                //testBLL1 test = UnityContainerRepository.GetInstanceDAL<testBLL1>();
+                //test.add();
                 return accountDAL.Add(account);
             }
             else
